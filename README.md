@@ -65,19 +65,19 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 
 ## 安装
 
-这个库的安装是很简单的。我在下面附上了详细的说明，应该可以帮助你开始安装。
+这个库的安装是很简单的。我在下面附上了详细的说明：
 
 1、下载并安装Python 3.7或更高版本：[https://www.python.org/](https://www.python.org/)
 
 2、`git clone` 命令克隆这个库或者直接网页下载它（download zip）。
 
-3、打开 CommandPrompt / PowerShell / Terminal，等任何工具，然后cd到主库文件夹。
+3、打开 CommandPrompt / PowerShell / Terminal，等任何命令行工具，然后 `cd` 到主库文件夹。
 
-- 例如：cd C:\Users\Swar\Documents\Swar-Chia-Plot-Manager
+- 例如：`cd C:\Users\Swar\Documents\Swar-Chia-Plot-Manager`
 
 4、可选：为Python创建一个虚拟环境。如果你用Python做其他事情，建议这样做：
 
-- 创建一个新的Python环境： python -m venv venv
+- 创建一个新的 `Python` 环境： `python -m venv venv`
 
 - 第二个venv可以重命名为你想要的任何东西。作者更喜欢用venv，因为它是一个规范。
 
@@ -85,7 +85,7 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
     -  Windows：`venv\Scripts\activate`
     -  Linux: `./venv/bin/activate` 或 `source ./venv/bin/activate`
 
-- 通过看到(venv)的前缀来确认它已经激活，前缀会根据你给它起的名字（venv）而改变。
+- 通过看到(venv)的前缀来确认它已经激活了，前缀会根据你给它起的名字（venv）而改变。
 
 5、安装所需模块： `pip install -r requirements.txt`
 
@@ -95,11 +95,11 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 
 - 你还需要添加 `chia_location!` 这应该指向你的chia可执行文件（注意这个不是环境变量，这个工具不需要你配置环境变量）
 
-8、运行管理器： python [manager.py](http://manager.py/) start
+8、运行管理器： `python manager.py start`
 
 - 这将在后台启动一个进程，根据你输入的设置来管理绘图。
 
-9、运行视图： python [manager.py](http://manager.py/) view
+9、运行视图： `python manager.py view`
 
 - 这将循环查看检测屏幕上的正在活动地块的详细信息。
 
@@ -110,13 +110,15 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 这个绘图管理器是基于任务的概念来工作的。每个任务都有自己的设置，你可以对每个任务进行个性化设置，没有哪个是唯一的，所以这将为你提供灵活性。
 
 ### chia_location
-这是一个单一的变量，应该包含你的 `chia` 可执行文件的位置。这就是 chia 的可执行文件。
+
+这是一个变量，每个人可能都是不一样的，应该包含你的 `chia` 可执行文件的位置。这就是 chia 的可执行文件。
 
 - Windows的例子：`C:\Users\你的用户名\AppData\Local\chia-blockchain\app-你的chia版本\resources\app.asar.unpacked\daemon\chia.exe`
 
 - Linux的例子: `/usr/lib/chia-blockchain/resources/app.asar.unpacked/daemon/chia`
 
 - 另一个Linux例子: `/home/swar/chia-blockchain/venv/bin/chia`
+
 ### 管理
 
 这些是只由绘制管理器使用的配置设置。
@@ -130,43 +132,44 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 - `folder_path` - 这是你的日志文件的文件夹，用于保存绘图。
 
 ### 视图
+
 这些是视图将使用的设置
 
 - `check_interval` - 更新视图前的等待秒数。
 - `datetime_format` - 视图中希望显示的日期时间格式。格式化见这里：[https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
 - `include_seconds_for_phase` - 时间转换格式是否包括秒。
-- `include_drive_info` - 是否会显示驱动器信息。
-- `include_cpu` - 是否会显示CPU的信息。
-- `include_ram` - 是否显示RAM的信息。
-- `include_plot_stats` - 是否会显示绘图统计信息。
+- `include_drive_info` - 是否会显示驱动器相关信息。
+- `include_cpu` - 是否显示CPU的相关信息。
+- `include_ram` - 是否显示RAM的相关信息。
+- `include_plot_stats` - 是否会显示绘图统计相关信息。
 ### 通知
 这些是不同的设置，以便在绘图管理器启动和绘图完成时发送通知。
 
 ### 进展
-- `phase_line_end` - 这些设置将用于决定一个阶段在进度条中的结束时间。它应该反映出该阶段结束的线，这样进度计算就可以使用该信息与现有的日志文件来计算进度百分比。
-- `phase_weight` - 这些是在进度计算中分配给每个阶段的权重,通常情况下，第1和第3阶段是最长的阶段，所以它们将比其他阶段拥有更多的权重。
+- `phase_line_end` - 这些设置将用于决定各个阶段在进度条中的结束时间。它应该反映出该阶段结束的线，这样进度计算就可以使用该信息与现有的日志文件来计算进度百分比。
+- `phase_weight` - 这些是在进度计算中分配给各个阶段的权重,通常情况下，第1和第3阶段是最长的阶段，所以它们应该比其他阶段拥有更多的权重。
 ### 全局
 - `max_concurrent` - 你的系统可以运行的最大绘图数量,管理器在一段时间内启动的地块总数不会超过这个数量。
 ## 任务
-- 这些是每个任务将使用的设置。请注意，你可以有多个任务，每个任务都应该是YAML格式的，这样才能正确配置。这里几乎所有的值都将被传递到Chia可执行文件中。
+- 这些是每个任务使用的设置，请注意，你可以有多个任务，每个任务都应该是YAML格式的，这样才能正确配置。这里几乎所有的值都将被传递到Chia可执行文件中。
 
-点击这里查看更多关于Chia CLI的详情：[https://github.com/Chia-Network/chia-blockchain/wiki/CLI-Commands-Reference](https://github.com/Chia-Network/chia-blockchain/wiki/CLI-Commands-Reference)
+点击这里参考更多关于Chia CLI的详情：[https://github.com/Chia-Network/chia-blockchain/wiki/CLI-Commands-Reference](https://github.com/Chia-Network/chia-blockchain/wiki/CLI-Commands-Reference)
 
 - `name` - 这是你要给的名字。
-- `max_plots` - 这是在管理器的一次运行中，任务的最大数量。任何重新启动管理器的操作都会重置这个变量。它在这里只是为了帮助短期的绘图。
+- `max_plots` - 这是在管理器的一次运行中，任务的最大数量。任何重新启动管理器的操作都会重置这个变量，它在这里只是为了帮助你在这段时间内的绘图。
 - [OPTIONAL] `farmer_public_key` - 你的chia耕种公钥。如果没有提供，它将不会把这个变量传给chia执行程序，从而导致你的默认密钥被使用。只有当你在一台没有你的证书的机器上设置了chia时才需要这个。
 - [OPTIONAL] `pool_public_key` - 你的池公钥。与上述信息相同。
 - `temporary_directory` - 这里应该只传递一个目录。这是将进行绘图的地方。
 - [OPTIONAL]`temporary2_directory `- 可以是一个单一的值或一个值的列表。这是一个可选的参数，如果你想使用 Chia 绘图的 temporary2 目录功能，可以使用这个参数。
 - `destination_directory` - 可以是一个单一的值或一个值的列表。这是绘图完成后将被转移到的最终目录。如果你提供一个列表，它将逐一循环浏览每个驱动器。
-- `size` - 这指的是绘图的k大小。你可以在这里输入32、33、34、35......这样的内容。
-- `bitfield` - 这指的是你是否想在你的绘图中使用bitfield。通常情况下，推荐使用 `true`。
+- `size` - 这指的是绘图的k大小。你可以在这里输入32、33、34、35......这样的内容（这取决于你之前的习惯）
+- `bitfield` - 这指的是你是否想在你的绘图中使用bitfield。通常情况下，推荐使用 `true`
 - `threads` - 这是将分配给 plot 绘图的线程数。只有第1阶段使用1个以上的线程。（观众很多反馈：这个是每个 plot 的线程）
 - `buckets` - 要使用的桶的数量。Chia提供的默认值是128。
 - `memory_buffer` - 你想分配给进程的内存数量。
 - `max_concurrent` - 这个任务在任何时候都要有的最大数量的绘图。
 - `max_concurrent_with_start_early` - 这项工作在任何时候拥有的最大绘图数量，包括提前开始的阶段。
-- `stagger_minutes` - 每个任务并发之间的交错时间单位 分钟。如果你想让你的 plot 在并发限制允许的情况下立即被启动，你甚至可以把它设置为零。
+- `stagger_minutes` - 每个任务并发之间的交错时间单位 分钟。如果你想让你的 plot 在并发限制允许的情况下立即被启动，你甚至可以把它设置为零（为 0 就是同步开始，没有交错时间，不推荐设置为0，最佳 stagger 一般是平均速度的 1/6为最佳，这是我在 reddit 看到的测试）
 - `max_for_phase_1` - 这个任务在第1阶段的最大绘图数量。
 - `concurrency_start_early_phase` - 你想提前启动一个绘图的阶段。建议使用4。
 - `concurrency_start_early_phase_delay` - 当检测到提前开始阶段时，在新的绘图被启动之前的最大等待分钟数。 
