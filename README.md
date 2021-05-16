@@ -4,6 +4,7 @@
 
 这是我为它制作的视频：https://www.youtube.com/watch?v=CJcVSzpaXLQ&t=1715s
 
+>请注意，我并不以此牟利，不求任何人的关注，做影片完全是出于锻炼自己的目的，我志远不在此。
 
 它是一个 chia 的绘图管理器 
 
@@ -50,13 +51,13 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 **如果我停止绘图器，是否会杀死我的任务？**
 - 不会，绘图是在后台启动的，它们不会杀死你现有的绘图。如果你想结束它们，你可以访问PIDs，并手动结束它们。请注意，你还必须删除.tmp文件。我不为你处理这个问题。
 
-**如果我有一个列表，如何选择临时2和目的地？**
+**如果我有一个列表，如何选择`temporary2`和目的地？**
 
 - 它们是按顺序选择的。如果你有两个目录，第一个绘图会选择第一个，第二个会选择第二个，而第三个会选择第一个,这样循环 1 2 1 2 1 2 1...
 
 **什么是 temporary2_destination_sync？**
 
-一些用户喜欢选择总是拥有相同的临时2和目标目录。启用这个设置将总是让 `temporary2` 作为目的地的磁盘。如果你使用这个设置，你可以使用一个空的 `temporary2` ]
+一些用户喜欢选择总是拥有相同的`temporary2`和目标目录。启用这个设置将总是让 `temporary2` 作为目的地的磁盘。如果你使用这个设置，你可以使用一个空的 `temporary2` ]
 
 **对我的设置来说，什么是最好的配置？**
 
@@ -169,4 +170,4 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 - `max_for_phase_1` - 这个任务在第1阶段的最大绘图数量。
 - `concurrency_start_early_phase` - 你想提前启动一个绘图的阶段。建议使用4。
 - `concurrency_start_early_phase_delay` - 当检测到提前开始阶段时，在新的绘图被启动之前的最大等待分钟数。 
-- `temporary2_destination_sync` - 这个字段将始终提交目标目录作为临时2目录。这两个目录将是同步的，因此它们将总是以相同的值提交。
+- `temporary2_destination_sync` - 这个字段将始终提交目标目录作为`temporary2`目录。这两个目录将是同步的，因此它们将总是以相同的值提交。
