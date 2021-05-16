@@ -1,14 +1,13 @@
 # Swar's Chia Plot Manager 粉丝版本尽兴翻译
  
-下载最好到原地址：https://github.com/swar/Swar-Chia-Plot-Manager
+下载或者查看英文请到原地址：https://github.com/swar/Swar-Chia-Plot-Manager
 
 这是我为它制作的视频：https://www.youtube.com/watch?v=CJcVSzpaXLQ&t=1715s
 
 >请注意，我并不以此牟利，不求任何人的关注，做影片完全是出于锻炼自己的目的，我志远不在此。
 
 它是一个 chia 的绘图管理器 
-
-[English](README_EN.md) / [中文](README.ZN.md)
+ 
 
 ![The view of the manager](https://i.imgur.com/SmMDD0Q.png "View")
 
