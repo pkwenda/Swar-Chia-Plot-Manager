@@ -160,10 +160,10 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 - [OPTIONAL] `pool_public_key` - 你的池公钥。与上述信息相同。
 - `temporary_directory` - 这里应该只传递一个目录。这是将进行绘图的地方。
 - [OPTIONAL]`temporary2_directory `- 可以是一个单一的值或一个值的列表。这是一个可选的参数，如果你想使用 Chia 绘图的 temporary2 目录功能，可以使用这个参数。
-- `destination_directory` - 可以是一个单一的值或一个值的列表。这是绘图完成后将被转移到的最终目录。如果你提供一个列表，它将逐一循环浏览每个驱动器。
+- `destination_directory` - 可以是一个单一的值或一个值的列表。这是绘图完成后将被转移到的最终目录。如果你提供一个列表，它将逐一循环浏览每个磁盘。
 - `size` - 这指的是绘图的k大小。你可以在这里输入32、33、34、35......这样的内容（这取决于你之前的习惯）
 - `bitfield` - 这指的是你是否想在你的绘图中使用`bitfield`通常情况下，推荐使用 `true`
-- `threads` - 这是将分配给 plot 绘图的线程数。只有第1阶段使用1个以上的线程。（观众很多反馈：这个是每个 plot 的线程）
+- `threads` - 这是将分配给 plot 绘图的线程数。只有第1阶段使用1个以上的线程。（这里尤为注意，这是每个绘图任务的线程，对应 chia 官方的 2 自行改动）
 - `buckets` - 要使用的桶的数量。Chia提供的默认值是128。
 - `memory_buffer` - 你想分配给进程的内存数量。
 - `max_concurrent` - 这个任务在任何时候都要有的最大数量的绘图。
@@ -172,4 +172,4 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 - `max_for_phase_1` - 这个任务在第1阶段的最大绘图数量。
 - `concurrency_start_early_phase` - 你想提前启动一个绘图的阶段。建议使用4。
 - `concurrency_start_early_phase_delay` - 当检测到提前开始阶段时，在新的绘图被启动之前的最大等待分钟数。 
-- `temporary2_destination_sync` - 这个字段将始终提交目标目录作为`temporary2`目录。这两个目录将是同步的，因此它们将总是以相同的值提交。
+- `temporary2_destination_sync` - 这个字段将始终提交目标目录作为`temporary2`目录。这两个目录将是同步的。
