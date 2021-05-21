@@ -1,4 +1,4 @@
-# Swar's Chia Plot Manager 粉丝版本翻译
+# Swar's Chia Plot Manager 粉丝版本翻译（已升级 0.1.0）
  
 下载或者查看英文请到原地址：https://github.com/swar/Swar-Chia-Plot-Manager
 
