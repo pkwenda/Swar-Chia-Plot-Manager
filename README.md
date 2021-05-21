@@ -1,4 +1,4 @@
-# Swar's Chia Plot Manager 粉丝版本尽兴翻译
+# Swar's Chia Plot Manager 粉丝版本翻译
  
 原地址：https://github.com/swar/Swar-Chia-Plot-Manager
 
@@ -59,6 +59,50 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 **对我的设置来说，什么是最好的配置？**
 
 - 请把这个问题转发给 `Keybase` 或添加讨论标签。
+
+
+
+## 所有命令
+
+##### 命令的使用实例
+```文字
+> python3 manager.py start
+
+> python3 manager.py 重新启动
+
+> python3 manager.py stop
+
+> python3 manager.py view
+
+> python3 manager.py status
+
+> python3 manager.py analyze_logs
+```
+
+### start
+
+这个命令将在后台启动管理器。一旦你启动它，它就会一直运行，除非所有的作业都完成了`max_plots` 或者出现了错误。错误将被记录在一个创建的`debug.log`文件中。
+
+### stop
+
+这个命令将在后台终止管理器，它不会停止运行中的绘图，只会停止新绘图的创建。
+
+### restart
+
+该命令将依次运行启动和停止。
+
+### view
+
+该命令将显示你可以用来跟踪你正在运行的绘图的视图。这将在你的`config.yaml'中定义的每X秒更新一次。
+
+### status
+
+该命令将对视图进行一次快照,它不会循环。
+
+### analyze_logs
+
+该命令将分析你的日志文件夹中所有完成的绘图日志，并为你的计算机配置计算适当的权重。只需在你的`config.yaml`中的`progress`部分填入返回的值。这只影响进度条。
+
 
 ## 安装
 
@@ -139,11 +183,14 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 ### 通知
 这些是不同的设置，以便在绘图管理器启动和绘图完成时发送通知。
 
-### 进展
+### 进度
 - `phase_line_end` - 这些设置将用于决定一个阶段在进度条中的结束时间。它应该反映出该阶段结束的线，这样进度计算就可以使用该信息与现有的日志文件来计算进度百分比。
 - `phase_weight` - 这些是在进度计算中分配给每个阶段的权重,通常情况下，第1和第3阶段是最长的阶段，所以它们将比其他阶段拥有更多的权重。
 ### 全局
 - `max_concurrent` - 你的系统可以运行的最大绘图数量,管理器在一段时间内启动的地块总数不会超过这个数量。
+- `max_for_phase_1` - 系统在第一阶段可以运行的最大绘图数量。
+- `minimum_minutes_between_job` - 开始一个新的绘图任务前的最小分钟数，这可以防止多个工作在同一时间开始，这将缓解目标磁盘的拥堵，设置为0表示禁用。
+
 ## 任务
 - 这些是每个任务将使用的设置。请注意，你可以有多个任务，每个任务都应该是YAML格式的，这样才能正确配置。这里几乎所有的值都将被传递到Chia可执行文件中。
 
@@ -168,3 +215,17 @@ GitHub讨论区: [https://github.com/swar/Swar-Chia-Plot-Manager/discussions](ht
 - `concurrency_start_early_phase` - 你想提前启动一个绘图的阶段。建议使用4。
 - `concurrency_start_early_phase_delay` - 当检测到提前开始阶段时，在新的绘图被启动之前的最大等待分钟数。 
 - `temporary2_destination_sync` - 这个字段将始终提交目标目录作为临时2目录。这两个目录将是同步的，因此它们将总是以相同的值提交。
+
+- `exclude_final_directory` - 是否为收个几跳过最终目录
+
+- `destination_directory`进行耕作，（这是Chia的一个功能）
+- `skip_full_destinations` - 启用该功能时，它将计算所有正在运行的 plot 和未来 plot 的大小，以确定磁盘上是否有足够的空间来启动任务，如果没有，它将跳过该磁盘，转到下一个，一旦所有的空间都满了，它就会停用作业。
+- `unix_process_priority` - 仅限UNIX操作系统，这是 plot 生成时将被赋予的优先级。UNIX值必须在-20和19之间。该值越高，进程的优先级越低。
+- `windows_process_priority` - 仅限Windows操作系统，这是 plot 在生成时将被赋予的优先级。Windows的数值不同，应该设置为以下数值之一。
+	- 16384 `below_normal_priority_class`（低于正常优先级）。
+	- 32 `normal_priority_class`（正常优先级）。
+	- 32768 "高于正常优先级"。
+	- 128 "高优先级 "的
+	- 256 "实时优先级"。
+- `enable_cpu_affinity` - 启用或禁用绘图进程的 cpu 亲和性，绘图和收割的系统在排除一个或两个线程的绘图进程时，可能会看到收割机或节点性能的改善。
+- `cpu_affinity` - 为绘图进程分配的cpu（或线程）的列表。默认例子假设你有一个超线程的4核CPU（8个逻辑核心）。这个配置将限制绘图进程使用逻辑核心0-5，把逻辑核心6和7留给其他进程（6个使用（限制6个），2个空闲）。
