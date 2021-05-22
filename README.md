@@ -2,7 +2,11 @@
  
 下载或者查看英文请到原地址：https://github.com/swar/Swar-Chia-Plot-Manager
 
-这是我为它制作的视频：https://www.youtube.com/watch?v=CJcVSzpaXLQ&t=1715s
+这是我为它制作的视频：
+- https://www.youtube.com/watch?v=CJcVSzpaXLQ
+- https://www.youtube.com/watch?v=ai-GA-9uX2g
+- https://www.youtube.com/watch?v=XqcDyg1btKo
+- https://www.youtube.com/watch?v=VdU2RaEYKRU
 
 >请注意，我并不以此牟利，不求任何人的关注，做影片完全是出于锻炼自己的目的，我志远不在此。
 
